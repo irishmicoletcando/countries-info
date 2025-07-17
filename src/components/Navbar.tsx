@@ -1,6 +1,6 @@
 const Navbar: React.FC = () => {
   return (
-    <nav className="flex flex-row justify-between items-center">
+    <nav className="flex flex-row items-center justify-between px-20 py-5 mb-10 shadow-grey-400 dark:bg-blue-900">
       <p className="text-2xl font-bold">Where in the world?</p>
 
       <div>
@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
           {/* sun icon */}
           <svg
-            className="swap-off h-10 w-10 fill-current"
+            className="w-10 h-10 fill-current swap-off"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24">
             <path
@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
 
           {/* moon icon */}
           <svg
-            className="swap-on h-10 w-10 fill-current"
+            className="w-10 h-10 fill-current swap-on"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24">
             <path
