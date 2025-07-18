@@ -1,21 +1,29 @@
 export interface CountryDetailsProps {
   name: {
-    official: string;
+    common: string;
+    nativeName: {
+      [langCode: string]: {
+        common: string;
+      }
+    };
   };
   cca3: string;
   nativeName: string;
   population: number;
   region: string;
+  subregion: string;
   capital: string;
-  topLevelDomain: string[];
+  tld: string[];
   flags: {
     svg: string;
   };
   currencies: {
-    name: string;
+    [currencyCode: string]: {
+      name: string;
+    }
   };
   languages: {
-    name: string;
+    [languageCode: string]: string;
   };
   borders: string[];
 }
