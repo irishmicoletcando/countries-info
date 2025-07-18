@@ -21,11 +21,11 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col justify-between px-20 md:flex-row">
+      <div className="flex flex-col justify-between px-10 mb-10 lg:px-20 gap-y-8 md:gap-y-0 md:flex-row">
         <SearchBar />
         <FilterDropdown />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-10 px-10 mb-5 lg:px-20 md:grid-cols-3 lg:grid-cols-4">
         {countryDetails?.map((countryDetail) => (
           <CountryDetailCard countryDetail={countryDetail}/>
         ))}

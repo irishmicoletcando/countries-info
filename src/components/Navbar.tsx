@@ -1,7 +1,7 @@
 const Navbar: React.FC = () => {
   return (
-    <nav className="flex flex-row items-center justify-between px-20 py-5 mb-10 shadow-grey-400 dark:bg-blue-900">
-      <p className="text-2xl font-bold">Where in the world?</p>
+    <nav className="flex flex-row items-center justify-between px-10 py-5 mb-10 md:px-15 lg:px-20 shadow-grey-400 dark:bg-blue-900">
+      <p className="text-xl font-bold md:text-2xl">Where in the world?</p>
 
       <div>
         <label className="swap swap-rotate">
