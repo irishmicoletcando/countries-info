@@ -1,7 +1,11 @@
-
 import { Link } from "react-router"
+import type { CountryDetailsProps } from "../types/countryDetails"
 
-const CountryDetailCard = ({ countryDetail }) => {
+interface CountryDetail {
+  countryDetail: CountryDetailsProps;
+}
+
+const CountryDetailCard: React.FC<CountryDetail> = ({ countryDetail }) => {
   return (
     <Link to="">
       <div className="bg-blue-900 rounded-lg shadow-sm h-80 card hover:shadow-2xl">
@@ -15,7 +19,7 @@ const CountryDetailCard = ({ countryDetail }) => {
         <div className="card-body">
           <h2 className="card-title">{countryDetail.name.official}</h2>
           <div className="flex flex-col gap-y-1">
-            <p className="font-semibold">Population: <span className="font-light">{countryDetail.population}</span></p>
+            <p className="font-semibold">Population: <span className="font-light">{(countryDetail.population).toLocaleString()}</span></p>
             <p className="font-semibold">Region: <span className="font-light">{countryDetail.region}</span></p>
             <p className="font-semibold">Capital: <span className="font-light">{countryDetail.capital}</span></p>
           </div>

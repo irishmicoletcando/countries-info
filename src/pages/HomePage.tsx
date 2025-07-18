@@ -4,13 +4,14 @@ import CountryDetailCard from '../components/CountryDetailCard'
 import FilterDropdown from '../components/FilterDropdown'
 import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
+import type { CountryDetailsProps } from "../types/countryDetails"
 
-const HomePage = () => {
-  const [countryDetails, setCountryDetails] = useState<[] | null>([])
+const HomePage: React.FC = () => {
+  const [countryDetails, setCountryDetails] = useState<CountryDetailsProps[]>([])
 
   useEffect(() => {
     const fetchCountryDetails = async () => {
-      const res = await axios.get("https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags")
+      const res = await axios.get("https://restcountries.com/v3.1/all?fields=name,cca3,population,region,capital,flags")
       setCountryDetails(res.data)
       console.log(res.data)
     }
@@ -27,7 +28,7 @@ const HomePage = () => {
       </div>
       <div className="grid grid-cols-1 gap-10 px-10 mb-5 lg:px-20 md:grid-cols-3 lg:grid-cols-4">
         {countryDetails?.map((countryDetail) => (
-          <CountryDetailCard countryDetail={countryDetail}/>
+          <CountryDetailCard key={countryDetail.cca3} countryDetail={countryDetail}/>
         ))}
       </div>
     </div>
