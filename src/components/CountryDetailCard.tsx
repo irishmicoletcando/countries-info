@@ -19,9 +19,9 @@ const CountryDetailCard: React.FC<CountryDetail> = ({ countryDetail }) => {
         <div className="card-body">
           <h2 className="card-title">{countryDetail.name.common}</h2>
           <div className="flex flex-col gap-y-1">
-            <p className="font-semibold">Population: <span className="font-light">{(countryDetail.population).toLocaleString()}</span></p>
-            <p className="font-semibold">Region: <span className="font-light">{countryDetail.region}</span></p>
-            <p className="font-semibold">Capital: <span className="font-light">{countryDetail.capital}</span></p>
+            <p className="font-semibold">Population: <span className="font-light">{countryDetail.population != null ? (countryDetail.population).toLocaleString() : "N/A"}</span></p>
+            <p className="font-semibold">Region: <span className="font-light">{countryDetail.region?.length ? countryDetail.region : "N/A"}</span></p>
+            <p className="font-semibold">Capital: <span className="font-light">{countryDetail.capital?.length ? countryDetail.capital : "N/A"}</span></p>
           </div>
         </div>
       </div>

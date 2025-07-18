@@ -44,14 +44,14 @@ const CountryDetailPage: React.FC = () => {
                     <p className="font-semibold">Native Name: <span className="font-light">{countryInfo.name.nativeName
                     ? Object.values(countryInfo.name.nativeName)[0].common
                     : "N/A"}</span></p>
-                    <p className="font-semibold">Population: <span className="font-light">{(countryInfo.population).toLocaleString()}</span></p>
-                    <p className="font-semibold">Region: <span className="font-light">{countryInfo.region}</span></p>
-                    <p className="font-semibold">Sub Region: <span className="font-light">{countryInfo.subregion}</span></p>
-                    <p className="font-semibold">Capital: <span className="font-light">{countryInfo.capital}</span></p>
+                    <p className="font-semibold">Population: <span className="font-light">{countryInfo.population != null ? (countryInfo.population).toLocaleString() : "N/A"}</span></p>
+                    <p className="font-semibold">Region: <span className="font-light">{countryInfo.region?.length ? countryInfo.region : "N/A"}</span></p>
+                    <p className="font-semibold">Sub Region: <span className="font-light">{countryInfo.subregion?.length ? countryInfo.subregion : "N/A"}</span></p>
+                    <p className="font-semibold">Capital: <span className="font-light">{countryInfo.capital?.length ? countryInfo.capital : "N/A"}</span></p>
                   </div>
 
                   <div>
-                    <p className="font-semibold">Top Level Domain: <span className="font-light">{countryInfo.tld}</span></p>
+                    <p className="font-semibold">Top Level Domain: <span className="font-light">{countryInfo.tld?.length ? countryInfo.tld : "N/A"}</span></p>
                     <p className="font-semibold">
                       Currencies:{" "}
                       <span className="font-light">
