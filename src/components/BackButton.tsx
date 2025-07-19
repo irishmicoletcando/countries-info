@@ -12,7 +12,7 @@ const BackButton = () => {
     <div>
       <button 
         onClick={handleBack}
-        className='bg-white border btn border-grey-50 dark:border-blue-950 text-grey-950 dark:text-white dark:bg-blue-900'
+        className='mb-10 bg-white border btn border-grey-50 dark:border-blue-950 text-grey-950 dark:text-white dark:bg-blue-900'
       >
         <ArrowLeft />
         Back

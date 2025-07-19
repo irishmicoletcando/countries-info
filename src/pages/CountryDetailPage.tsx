@@ -100,7 +100,7 @@ const CountryDetailPage: React.FC<CountryDetailPageProps> = ({ theme, setTheme }
                   {countryInfo.borders && countryInfo.borders.length > 0 ? (
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-2">
                       {countryInfo.borders.map((border) => (
-                        <div key={border} className="px-4 py-1 text-sm text-center bg-white border rounded dark:bg-blue-900 border-grey-50 shadow-grey-950">
+                        <div key={border} className="px-4 py-1 text-sm text-center bg-white border rounded dark:bg-blue-900 border-grey-50 dark:border-blue-950 shadow-grey-950">
                           {getCountryNameByCode(border)}
                         </div>
                       ))}
