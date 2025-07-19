@@ -8,7 +8,7 @@ import type { CountryDetailsProps, RegionFilter } from "../types/countryDetails"
 
 const HomePage: React.FC = () => {
   const [countryDetails, setCountryDetails] = useState<CountryDetailsProps[]>([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [searchValue, setSearchValue] = useState<string>('')
   const [filterValue, setFilterValue] = useState<RegionFilter>("All")
 
@@ -36,7 +36,9 @@ const HomePage: React.FC = () => {
     
   if (loading) {
     return (
-      <span className="loading loading-spinner text-primary"></span>
+      <div className="flex items-center justify-center h-screen">
+        <span className="loading loading-spinner loading-lg text-blue-900"></span>
+      </div>
     )
   }
 
