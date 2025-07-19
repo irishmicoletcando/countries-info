@@ -4,9 +4,15 @@ import CountryDetailCard from '../components/CountryDetailCard'
 import FilterDropdown from '../components/FilterDropdown'
 import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
-import type { CountryDetailsProps, RegionFilter } from "../types/countryDetails"
+import type { CountryDetailsProps, RegionFilter, ThemeColors } from "../types/countryDetails"
+import type { Dispatch, SetStateAction } from "react"
 
-const HomePage: React.FC = () => {
+interface HomePageProps {
+  theme: ThemeColors
+  setTheme: Dispatch<SetStateAction<ThemeColors>>
+}
+
+const HomePage: React.FC<HomePageProps> = ({ theme, setTheme }) => {
   const [countryDetails, setCountryDetails] = useState<CountryDetailsProps[]>([])
   const [loading, setLoading] = useState(true)
   const [searchValue, setSearchValue] = useState<string>('')
@@ -37,15 +43,15 @@ const HomePage: React.FC = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <span className="loading loading-spinner loading-lg text-blue-900"></span>
+        <span className="text-blue-900 loading loading-spinner loading-lg"></span>
       </div>
     )
   }
 
   return (
-    <div className="mb-20">
-      <Navbar />
-      <div className="flex flex-col justify-between px-10 mb-10 lg:px-20 gap-y-8 md:gap-y-0 md:flex-row">
+    <div className="mb-20 bg-grey-50/90 dark:bg-blue-950">
+      <Navbar theme={theme} setTheme={setTheme}/>
+      <div className="flex flex-col justify-between px-10 my-10 lg:px-20 gap-y-8 md:gap-y-0 md:flex-row">
         <SearchBar searchValue={searchValue} setSearchValue={setSearchValue}/>
         <FilterDropdown handleFilterChange={handleFilterChange} selectedRegion={filterValue}/>
       </div>

@@ -31,3 +31,5 @@ export interface CountryDetailsProps {
 
 
 export type RegionFilter = "All" | "Africa" | "Americas" | "Asia" | "Europe" | "Oceania"
+
+export type ThemeColors = "light" | "dark"

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-nunito-sans: "Nunito Sans", "sans-serif";
   --color-blue-900: hsl(209, 23%, 22%);

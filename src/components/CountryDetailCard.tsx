@@ -8,7 +8,7 @@ interface CountryDetail {
 const CountryDetailCard: React.FC<CountryDetail> = ({ countryDetail }) => {
   return (
     <Link to={`/country/${countryDetail.name.common}`}>
-      <div className="bg-blue-900 rounded-lg shadow-sm h-80 card hover:shadow-2xl">
+      <div className="bg-grey-50 dark:bg-blue-900 rounded-lg shadow-sm h-80 card hover:shadow-2xl">
         <figure className="max-h-44 md:max-h-32">
           <img
             src={countryDetail.flags.svg}
