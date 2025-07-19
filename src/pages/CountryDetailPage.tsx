@@ -59,8 +59,8 @@ const CountryDetailPage: React.FC<CountryDetailPageProps> = ({ theme, setTheme }
         <BackButton />
 
         {!loading && (
-            <div className="flex flex-col lg:flex-row gap-x-10 gap-y-10">
-              <img src={countryInfo.flags.svg} alt={countryInfo.name.common} className="object-contain w-full lg:w-1/2 h-100"/>
+            <div className="flex flex-col lg:flex-row gap-x-10 gap-y-5">
+              <img src={countryInfo.flags.svg} alt={countryInfo.name.common} className="object-contain w-full h-56 lg:w-1/2 md:h-100"/>
 
               <div className="flex flex-col justify-center gap-y-5">
                 <h3 className="text-2xl font-bold tracking-wide">{countryInfo.name.common}</h3>
