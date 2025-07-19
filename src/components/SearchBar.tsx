@@ -1,4 +1,9 @@
-const SearchBar = () => {
+interface SearchInputProps {
+  searchValue: string;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const SearchBar: React.FC<SearchInputProps> = ({searchValue, setSearchValue}) => {
   return (
     <div>
       <label className="bg-blue-900 input">
@@ -14,7 +19,13 @@ const SearchBar = () => {
             <path d="m21 21-4.3-4.3"></path>
           </g>
         </svg>
-        <input type="search" className="grow" placeholder="Search for a country..." />
+        <input 
+          type="search" 
+          className="grow" 
+          placeholder="Search for a country..." 
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
       </label>
     </div>
   )
