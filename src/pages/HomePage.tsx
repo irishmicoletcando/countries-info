@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="mb-20">
       <Navbar />
       <div className="flex flex-col justify-between px-10 mb-10 lg:px-20 gap-y-8 md:gap-y-0 md:flex-row">
         <SearchBar searchValue={searchValue} setSearchValue={setSearchValue}/>

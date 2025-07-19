@@ -4,12 +4,12 @@ import CountryDetailPage from "./pages/CountryDetailPage"
 
 const App = () => {
   return (
-    <div className="font-nunito-sans min-h-screen w-full dark:bg-blue-950">
+    <main className="font-nunito-sans min-h-screen w-full">
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/country/:name" element={<CountryDetailPage />}/>
       </Routes>
-    </div>
+    </main>
   )
 }
 

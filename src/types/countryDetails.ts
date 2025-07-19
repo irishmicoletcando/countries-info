@@ -26,6 +26,7 @@ export interface CountryDetailsProps {
     [languageCode: string]: string;
   };
   borders: string[];
+  cioc: string;
 }
 
 
