@@ -27,3 +27,6 @@ export interface CountryDetailsProps {
   };
   borders: string[];
 }
+
+
+export type RegionFilter = "All" | "Africa" | "Americas" | "Asia" | "Europe" | "Oceania"

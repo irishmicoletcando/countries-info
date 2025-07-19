@@ -4,12 +4,13 @@ import CountryDetailCard from '../components/CountryDetailCard'
 import FilterDropdown from '../components/FilterDropdown'
 import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
-import type { CountryDetailsProps } from "../types/countryDetails"
+import type { CountryDetailsProps, RegionFilter } from "../types/countryDetails"
 
 const HomePage: React.FC = () => {
   const [countryDetails, setCountryDetails] = useState<CountryDetailsProps[]>([])
   const [loading, setLoading] = useState(false)
   const [searchValue, setSearchValue] = useState<string>('')
+  const [filterValue, setFilterValue] = useState<RegionFilter>("All")
 
   useEffect(() => {
     setLoading(true)
@@ -22,8 +23,17 @@ const HomePage: React.FC = () => {
     fetchCountryDetails()
   }, [])
 
-  const filteredItems = countryDetails.filter((countryDetail) => countryDetail.name.common.toLowerCase().includes(searchValue.toLowerCase()))
+  const handleFilterChange = (region : RegionFilter) : void => {
+    setFilterValue(region)
+  }
 
+  const filteredItems = countryDetails.filter((countryDetail) => {
+    const matchesFilter = filterValue === "All" ? true : countryDetail.region === filterValue;
+    const matchesSearch = countryDetail.name.common.toLowerCase().includes(searchValue.toLowerCase())
+
+    return matchesFilter && matchesSearch
+  })
+    
   if (loading) {
     return (
       <span className="loading loading-spinner text-primary"></span>
@@ -35,7 +45,7 @@ const HomePage: React.FC = () => {
       <Navbar />
       <div className="flex flex-col justify-between px-10 mb-10 lg:px-20 gap-y-8 md:gap-y-0 md:flex-row">
         <SearchBar searchValue={searchValue} setSearchValue={setSearchValue}/>
-        <FilterDropdown />
+        <FilterDropdown handleFilterChange={handleFilterChange} selectedRegion={filterValue}/>
       </div>
 
       {filteredItems.length === 0 && (
