@@ -7,7 +7,7 @@ const App = () => {
     <div className="font-nunito-sans min-h-screen w-full dark:bg-blue-950">
       <Routes>
         <Route path="/" element={<HomePage />}/>
-        <Route path="/country" element={<CountryDetailPage />}/>
+        <Route path="/country/:name" element={<CountryDetailPage />}/>
       </Routes>
     </div>
   )

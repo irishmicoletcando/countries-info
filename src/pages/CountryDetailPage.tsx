@@ -3,26 +3,31 @@ import BackButton from "../components/BackButton"
 import Navbar from "../components/Navbar"
 import type { CountryDetailsProps } from "../types/countryDetails"
 import axios from "axios"
+import { useParams } from "react-router"
 
 const CountryDetailPage: React.FC = () => {
   const [countryInfo, setCountryInfo] = useState<CountryDetailsProps | null>(null)
   const [loading, setLoading] = useState(false)
 
+  const { name } = useParams();
+
   useEffect(() => {
     setLoading(true)
     const fetchCompleteCountryInfo = async () => {
-      const res = await axios.get("https://restcountries.com/v3.1/name/belgium")
+      const res = await axios.get(`https://restcountries.com/v3.1/name/${encodeURIComponent(name!)}`)
       setCountryInfo(res.data[0])
       console.log(res.data)
       setLoading(false)
     }
 
     fetchCompleteCountryInfo()
-  }, [])
+  }, [name])
 
   if (loading || !countryInfo) {
     return (
-      <span className="loading loading-spinner text-accent"></span>
+      <div className="flex items-center justify-center h-screen">
+        <span className="loading loading-spinner loading-lg text-blue-900"></span>
+      </div>
     )
   }
 
@@ -71,13 +76,17 @@ const CountryDetailPage: React.FC = () => {
 
                 <div className="flex flex-row gap-x-5 items-center">
                   <p className="font-semibold">Border Countries:</p>
-                    <div className="flex flex-row gap-x-5">
-                      {Object.values(countryInfo.borders).map((border) => (
-                        <div className="bg-blue-900 border border-gray-950 px-10 py-1">
+                  {countryInfo.borders && countryInfo.borders.length > 0 ? (
+                    <div className="grid grid-cols-4 gap-x-5 gap-y-2">
+                      {countryInfo.borders.map((border) => (
+                        <div key={border} className="bg-blue-900 border border-gray-950 px-4 py-1 text-sm rounded text-white">
                           {border}
                         </div>
                       ))}
                     </div>
+                  ) : (
+                    <span className="font-light">None</span>
+                  )}
                 </div>
               </div>
             </div>
